@@ -4,6 +4,7 @@ gem 'rails', '3.0.1'
 
 gem 'mongo_mapper', :git => 'git://github.com/jnunemaker/mongomapper.git', :branch => 'rails3'
 gem 'omniauth'
+gem 'git-deploy'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.0.1'
