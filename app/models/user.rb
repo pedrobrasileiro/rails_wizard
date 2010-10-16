@@ -1,7 +1,7 @@
 class User
   include MongoMapper::Document         
 
-  one :authorization
+  many :authorizations
   key :name, String
   
   def self.from_hash(auth_hash)
@@ -16,6 +16,6 @@ class User
   end
   
   def self.authorize(provider, uid)
-    user.where('authorization.provider' => provider, 'authorization.uid' => uid).first
+    user.where('authorizations.provider' => provider, 'authorizations.uid' => uid).first
   end
 end

@@ -5,4 +5,5 @@ class Authorization
   key :uid, String
   
   validates_uniqueness_of :uid, :scope => :provider
+  validates_presence_of :uid, :provider
 end
