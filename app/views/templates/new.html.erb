@@ -1,1 +1,17 @@
-<h1>A rocket-fueled kick in the app.</h1>
+<h1>5 minutes to save you 5 hours</h1>
+
+<p>Rails Wizard is a web-based wizard to walk you through the first steps of 
+creating a Rails application. The first hours of a Rails project can be 
+frustrating: you feel as though you've done all of this before in a slightly
+different context. Rails Wizard aims to get all of the repetitive startup
+cost out of the development process, letting you focus on getting awesome
+fast.</p>
+
+<p>To get started, just enter a name for your template and click <b>"Start"</b>
+below. The template could be named for a specific application you're working
+on, or it could be a generic name for the type of template you're building.</p>
+
+<%= form_for RailsTemplate.new, :url => templates_path, :html => {:id => 'start_form'} do |f| %>
+  <%= f.text_field :name, :placeholder => 'Template Name' %>
+  <button type='submit'>Start</button>
+<% end %>

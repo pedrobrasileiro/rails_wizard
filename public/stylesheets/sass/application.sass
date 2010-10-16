@@ -1,12 +1,14 @@
 @import css3.sass
 
+$helvetica = "\"Helvetica Neue\", Helvetica, Arial, sans-serif"
+
 body, html
   min-height: 100%
 
 body
   padding: 0
   margin: 0
-  font-family: "Helvetica Neue", Helvetica, sans-serif
+  font-family: $helvetica
   background: #ddd
   
 section, header, footer, nav, aside, hgroup
@@ -91,6 +93,17 @@ h1, h2, h3, h4
       font-size: 26px
       text-shadow: 2px 2px 5px rgba(0,0,0,0.5)
       margin: 0
+    h2
+      float: right
+      font-size: 18px
+      margin: 0
+      line-height: 30px
+      a
+        color: #ddd
+        font-weight: normal
+        text-decoration: none
+        &:hover
+          color: #bdf
 
 #sidebar
   width: 300px
@@ -131,11 +144,17 @@ h1, h2, h3, h4
       border-bottom: 1px solid #ccc
       border-top: 1px solid #eee
       cursor: default
-      
+aside#sidebar
+  +vertical-gradient(#911,#711)
+  color: white 
+  border: 1px solid #611
+  padding-top: 15px
+  p
+    margin: 0 15px 15px
 #main
   margin: 0 15px 15px 315px
   background: white
-  padding: 15px
+  padding: 15px 25px 25px
   +box-shadow(0,1px,7px,rgba(0,0,0,0.3))
   +border-bottom-radius(10px)
   h1, h2, h3, h4
@@ -146,6 +165,8 @@ h1, h2, h3, h4
     letter-spacing: 0
   h1
     font-size: 22px
+  p
+    line-height: 150%
     
 #heading
   margin: 0 15px 0 315px
@@ -154,3 +175,70 @@ h1, h2, h3, h4
   padding: 12px 15px
   color: #256
   z-index: 100
+
+button, input[type=submit]
+  cursor: pointer
+  
+#start_form
+  padding: 10px
+  +border-radius(5px)
+  +vertical-gradient(#aca, #7a7)
+  border: 1px solid #696
+  text-align: center
+  input
+    font-size: 22px
+    padding: 10px
+    height: 30px
+    font-family: $helvetica
+    width: 440px
+    +border-radius(5px)
+    +vertical-gradient(#fff, #eee)
+  button
+    padding: 12px 15px
+    font-family: $helvetica
+    +vertical-gradient(#0a0, #050)
+    +border-radius(5px)
+    color: white
+    font-size: 22px
+    border: 0
+    +box-shadow(1px, 1px, 5px, rgba(0,0,0,0.4))
+    &:hover
+      +vertical-gradient(#0c0, #070)
+
+input, select
+  font-family: $helvetica
+   
+form
+  .field
+    padding-bottom: 15px
+    border-bottom: 1px solid #eee
+    margin-bottom: 15px
+    label
+      display: block
+      margin-bottom: 5px
+      color: #444
+      text-shadow: 1px 1px 2px #ccc  
+      font-size: 18px
+    &.text
+      input
+        font-size: 18px
+        padding: 4px 7px
+    &.submit
+      border: 0
+      text-align: right
+      input
+        +vertical-gradient(#bde, #9bc)
+        +box-shadow(1px,1px,4px,rgba(0,40,100,0.2))
+        +border-radius(5px)
+        text-shadow: 1px 1px 1px #cef
+        padding: 8px 14px
+        color: #256
+        font-weight: bold
+        font-size: 16px
+        border: 1px solid #6ab
+        &:hover, &:focus
+          +vertical-gradient(#cef, #acd)
+          
+div.bespin
+  border: 1px solid #ddd
+  +box-shadow(1px,1px,3px,rgba(0,0,0,0.1))

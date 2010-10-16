@@ -1,0 +1,43 @@
+<%= content_for(:head) do %>
+  <link id="bespin_base" href="/javascripts/bespin"/>
+  <script src="/javascripts/bespin/BespinEmbedded.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    var env;
+    window.onBespinLoad = function() {
+        var edit = document.getElementById("recipe_code");
+        // Get the environment variable.
+        env = edit.bespin;
+        // Get the editor.
+        var editor = env.editor;
+        
+        env.editor.syntax = 'rb';
+        env.settings.set('theme','white');
+        env.settings.set('tabstop',2);
+        
+        editor.textChanged.add(function() {
+          $('#recipe_code').val(env.editor.value);
+        });
+    };
+  </script>
+<% end %>
+
+<%= form_for recipe do |f| %>
+  <div class='field text'>
+    <%= f.label :slug, 'Symbol Name:' %>
+    <%= f.text_field :slug, :placeholder => 'Symbol Name (e.g. jquery_ui)' %>
+  </div>
+
+  <div class='field text'>
+    <%= f.label :name, 'Title:' %>
+    <%= f.text_field :name, :placeholder => 'Display Title (e.g. jQuery UI)' %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :code, 'Source Code:' %>
+    <%= f.text_area :code, :class => 'bespin', :style => 'width: 580px; height: 300px;' %>
+  </div>
+  
+  <div class='field submit'>
+    <%= f.submit recipe.new_record?? 'Create Recipe' : 'Save Recipe' %>
+  </div>
+<% end %>

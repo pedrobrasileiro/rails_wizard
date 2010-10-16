@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsWizard</title>
+  <%= stylesheet_link_tag 'application', 'uniform.default', :cache => 'all' %>
+  <%= javascript_include_tag 'jquery', 'rails', 'jquery.uniform', 'application', :cache => 'all' %>
+  <%= csrf_meta_tag %>
+  <%= content_for :head %>
+</head>
+<body>
+  <header id='top'>
+    <section>
+      <h1><%= link_to image_tag('/images/logo.png', :alt => 'RailsWizard'), '/' %></h1>
+      <aside id='user_bar'>
+        <% if signed_in? %>
+          <%= link_to user_path(current_user) do %>
+            <%= image_tag '/asdouasf', :width => 20, :height => 20 %>
+            <b><%= current_user.name %></b>
+          <% end %>
+        <% else %>
+          <div id='sign_in'>
+            <span>Sign In</span>
+            <aside id='sign_ins'>
+              <%= link_to image_tag('/images/providers/twitter.png', :alt => 'Twitter'), '/auth/twitter' %>
+              <%= link_to image_tag('/images/providers/github.png', :alt => 'Twitter'), '/auth/twitter' %>
+              <%= link_to image_tag('/images/providers/google.png', :alt => 'Twitter'), '/auth/open_id?openid_url=https://www.google.com/accounts/o8/id' %>
+              <%= link_to image_tag('/images/providers/openid.png', :alt => 'Twitter'), '/auth/open_id' %>
+            </aside>
+          </div>
+        <% end %>
+      </aside>
+    </section>
+  </header>
+  
+  <div id='wrapper'>
+    <section id="content">
+      <header>
+        <% if @template %>
+          <h2><%= link_to compile_url(template), compile_url(template) %></h2>
+        <% end %>
+        <h1><%= @page_title || "Create a Rails Application Template" %></h1>
+      </header>
