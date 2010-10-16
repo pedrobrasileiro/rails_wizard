@@ -31,6 +31,12 @@
     <%= f.label :name, 'Title:' %>
     <%= f.text_field :name, :placeholder => 'Display Title (e.g. jQuery UI)' %>
   </div>
+  
+  <div class='field text'>
+    <%= f.label :description, 'Description:' %>
+    <%= f.label :description, 'Provide some information about what this recipe will add to the template.', :class => 'help' %>
+    <%= f.text_area :description %>
+  </div>
 
   <div class='field'>
     <%= f.label :code, 'Source Code:' %>

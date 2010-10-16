@@ -1,9 +1,13 @@
 class RailsTemplate
   include MongoMapper::Document         
 
+  STEPS = %w(app_info javascript)
+
   # Fields
   key :name, String
   key :slug, String
+  
+  key :app_name, String
   
   # Validations
   validates_presence_of :name, :slug
@@ -22,7 +26,7 @@ class RailsTemplate
   before_validation_on_create :set_slug
   
   def set_slug
-    while self.slug.nil? || RailsTemplate.find_by_slug(self.slug)
+    while self.slug.nil? || RailsTemplate.find_by_slug(self.slug) != self
       self.slug = self.class.generate_private_slug
     end
     self.slug

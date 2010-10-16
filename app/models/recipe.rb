@@ -3,6 +3,7 @@ class Recipe
   
   key :name, String
   key :slug, String
+  key :description, String
   key :priority, Float
   key :code, String
   

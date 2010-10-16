@@ -175,6 +175,9 @@ aside#sidebar
   padding: 12px 15px
   color: #256
   z-index: 100
+  em
+    font-weight: normal
+    font-style: normal
 
 button, input[type=submit]
   cursor: pointer
@@ -205,39 +208,64 @@ button, input[type=submit]
     &:hover
       +vertical-gradient(#0c0, #070)
 
-input, select
+input, select, textarea
   font-family: $helvetica
    
-form
-  .field
-    padding-bottom: 15px
-    border-bottom: 1px solid #eee
-    margin-bottom: 15px
-    label
-      display: block
+.field
+  padding-bottom: 15px
+  border-bottom: 1px solid #eee
+  margin-bottom: 15px
+  label
+    display: block
+    margin-bottom: 5px
+    color: #444
+    text-shadow: 1px 1px 2px #ccc  
+    font-size: 18px
+    &.help
+      font-size: 14px
+      color: #888
+      text-shadow: 1px 1px 1px #ddd
+      margin-top: -3px
       margin-bottom: 5px
-      color: #444
-      text-shadow: 1px 1px 2px #ccc  
+  &.text
+    input
       font-size: 18px
-    &.text
-      input
-        font-size: 18px
-        padding: 4px 7px
-    &.submit
-      border: 0
-      text-align: right
-      input
-        +vertical-gradient(#bde, #9bc)
-        +box-shadow(1px,1px,4px,rgba(0,40,100,0.2))
-        +border-radius(5px)
-        text-shadow: 1px 1px 1px #cef
-        padding: 8px 14px
-        color: #256
-        font-weight: bold
-        font-size: 16px
-        border: 1px solid #6ab
-        &:hover, &:focus
-          +vertical-gradient(#cef, #acd)
+      padding: 4px 7px
+  &.submit
+    border: 0
+    text-align: right
+    padding-bottom: 0
+    margin-bottom: 0
+  textarea
+    width: 550px
+    padding: 15px
+    font-size: 18px
+    height: 100px
+    border: 1px solid #ddd
+    +box-shadow(1px,1px,3px,rgba(0,0,0,0.1))
+      
+form .field.submit input, a.button
+  display: inline-block
+  vertical-align: middle
+  +vertical-gradient(#bde, #9bc)
+  +box-shadow(1px,1px,4px,rgba(0,40,100,0.2))
+  +border-radius(5px)
+  text-shadow: 1px 1px 1px #cef
+  padding: 8px 14px
+  color: #256
+  font-weight: bold
+  font-size: 16px
+  border: 1px solid #6ab
+  text-decoration: none
+  &:hover, &:focus
+    +vertical-gradient(#cef, #acd)
+  &.grey
+    +vertical-gradient(#eee,#ccc)
+    color: #444
+    text-shadow: 1px 1px 1px white
+    border: 1px solid #999
+    &:hover, &:focus
+      +vertical-gradient(#fff,#ddd)
           
 div.bespin
   border: 1px solid #ddd

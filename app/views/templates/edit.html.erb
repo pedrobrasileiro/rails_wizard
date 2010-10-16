@@ -1,0 +1,10 @@
+<%= form_for template, :url => template_path(template), :html => {:method => :put} do |f| %>
+  <%= hidden_field_tag :step, params[:step] %>
+  
+  <%= render "steps/#{params[:step]}", :f => f %>
+  
+  <div class='field submit'>
+    <%= link_to 'Previous Step', step_path(template, previous_step), :class => 'button grey' %>
+    <%= f.submit 'Next Step' %>
+  </div>
+<% end %>
