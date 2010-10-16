@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsWizard</title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'jquery', 'rails', 'application' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <header id='top'>
+    <section>
+      <h1><%= link_to image_tag('/images/logo.png', :alt => 'RailsWizard'), '/' %></h1>
+      <aside id='user_bar'>
+        <% if signed_in? %>
+          <%= link_to user_path(current_user) do %>
+            <%= image_tag '/asdouasf', :width => 20, :height => 20 %>
+            <b><%= current_user.name %></b>
+          <% end %>
+        <% else %>
+          <div id='sign_in'>
+            <span>Sign In</span>
+            <aside id='sign_ins'>
+              <%= link_to image_tag('/images/providers/twitter.png', :alt => 'Twitter'), '/auth/twitter' %>
+              <%= link_to image_tag('/images/providers/github.png', :alt => 'Twitter'), '/auth/twitter' %>
+              <%= link_to image_tag('/images/providers/google.png', :alt => 'Twitter'), '/auth/open_id?openid_url=https://www.google.com/accounts/o8/id' %>
+              <%= link_to image_tag('/images/providers/openid.png', :alt => 'Twitter'), '/auth/open_id' %>
+            </aside>
+          </div>
+        <% end %>
+      </aside>
+    </section>
+  </header>
+  
+  <div id='wrapper'>
+    <section id="content">
+      <header>
+        <h1>Create a Rails Application Template</h1>
+      </header>
+      <nav id='sidebar'>
+        <ul>
+          <li><%= link_to '#/app_info', :class => 'disabled' do %><b>Application Info</b> <em>Basic information about your app.</em><% end %></li>
+          <li><%= link_to '#/database', :class => 'disabled' do %><b>Database</b> <em>Choose your database and ORM.</em><% end %></li>
+          <li><%= link_to '#/testing', :class => 'disabled' do %><b>Testing</b> <em>Unit and integration testing.</em><% end %></li>
+          <li><%= link_to '#/javascript', :class => 'disabled' do %><b>Javascript</b> <em>Framework and plugins for JS</em><% end %></li>
+          <li><%= link_to '#/authentication', :class => 'disabled' do %><b>Authentication</b> <em>User sign in and sign up.</em><% end %></li>
+        </ul>
+      </nav>
+      <h1 id='heading'>A Rocket-Fueled Kick in the App.</h1>
+      <section id='main'>
+        <%= yield %>
+      </section>
+    </section>
+  </div>
+</body>
+</html>

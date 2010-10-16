@@ -1,0 +1,157 @@
+@import css3.sass
+
+body, html
+  min-height: 100%
+
+body
+  padding: 0
+  margin: 0
+  font-family: "Helvetica Neue", Helvetica, sans-serif
+  background: #ddd
+  
+section, header, footer, nav, aside, hgroup
+  display: block
+
+a img
+  border: 0
+  
+#top
+  top: 0
+  width: 100%
+  z-index: 9999
+  margin: 0
+  padding-top: 15px
+  height: 60px
+  +vertical-gradient(#fff, #ddd)
+  section
+    padding: 0 20px
+    min-width: 960px
+    max-width: 1280px
+    margin: 0 auto
+  h1
+    margin: 0
+    float: left
+  #user_bar
+    padding-top: 10px
+    position: relative
+    #sign_in
+      color: #333
+      font-weight: bold
+      display: block
+      float: right
+      text-decoration: none
+      padding: 10px 16px 14px
+      &:hover
+        background: #666
+        z-index: 999
+        color: white
+        +border-top-radius(10px)
+        #sign_ins
+          display: block
+  #sign_ins
+    position: absolute
+    display: none
+    top: 48px
+    right: 0
+    margin-left: 600px
+    +vertical-gradient(#666, #333)
+    +box-shadow(0px,2px,6px,rgba(0,0,0,0.4))
+    padding: 15px
+    z-index: 9998
+    +border-radius(10px)
+    +border-top-right-radius(0px)
+    a
+      display: inline-block
+      padding: 1px 3px
+      margin-top: 5px
+      &:hover
+        background: #666
+      +border-radius(10px)
+    
+#wrapper
+  min-width: 960px
+  max-width: 1280px
+  padding: 0 20px
+  margin: 0 auto
+
+h1, h2, h3, h4
+  letter-spacing: -0.05em
+  
+#content
+  background: #f5f5f5
+  margin-top: 20px
+  +border-radius(5px)
+  +box-shadow(1px,1px,3px,rgba(0,0,0,0.3))
+  min-height: 800px
+  > header
+    +vertical-gradient(#666,#333)
+    padding: 8px 14px
+    +border-top-radius(5px)
+    h1
+      color: white
+      font-size: 26px
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5)
+      margin: 0
+
+#sidebar
+  width: 300px
+  float: left
+  +box-shadow(2px,0,7px,rgba(0,0,0,0.2))
+  +border-bottom-right-radius(10px)
+  ul
+    margin: 0
+    padding: 0
+  li
+    list-style: none
+    a
+      display: block
+      padding: 10px 15px
+      border-top: 1px solid white
+      border-bottom: 1px solid #ddd
+      +vertical-gradient(#fff, #f5f5f5)
+      color: #444
+      text-decoration: none
+      font-size: 20px
+      font-weight: bold
+      b
+        display: block
+      em
+        display: block
+        font-size: 14px
+        color: #aaa
+        font-weight: normal
+      &:hover
+        +vertical-gradient(#eef5ff, #cef)
+        border-bottom: 1px solid #acf
+        border-top: 1px solid #acf
+    &:last-child a
+      +border-bottom-right-radius(10px)
+    a.disabled
+      +vertical-gradient(#eee,#ddd)
+      color: #777
+      border-bottom: 1px solid #ccc
+      border-top: 1px solid #eee
+      cursor: default
+      
+#main
+  margin: 0 15px 15px 315px
+  background: white
+  padding: 15px
+  +box-shadow(0,1px,7px,rgba(0,0,0,0.3))
+  +border-bottom-radius(10px)
+  h1, h2, h3, h4
+    border-bottom: 1px solid #ccc
+    font-weight: normal
+    margin: 0 0 20px
+    color: #555
+    letter-spacing: 0
+  h1
+    font-size: 22px
+    
+#heading
+  margin: 0 15px 0 315px
+  +vertical-gradient(#acd,#8ab)
+  +box-shadow(0,1px,7px,rgba(0,0,0,0.4))
+  padding: 12px 15px
+  color: #256
+  z-index: 100
