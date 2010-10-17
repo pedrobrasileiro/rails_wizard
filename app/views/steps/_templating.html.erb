@@ -1,0 +1,30 @@
+<h1>Unit Testing Framework</h1>
+<section class='field radio'>
+  <%= f.radio_button :templating, nil %>
+  <%= f.label "templating_nil", "ERB" %>
+  <%= f.label "templating_nil", "Use the default ERB for template rendering.", :class => 'help'%>
+</section>
+
+<% for recipe in Recipe.for('templating') %>
+  <section class='field radio'>
+    <%= f.radio_button :templating, recipe.slug %>
+    <%= f.label "templating_#{recipe.slug}", recipe.name %>
+    <%= f.label "templating_#{recipe.slug}", recipe.description, :class => 'help'%>
+  </section>
+<% end %>
+
+<h1>Integration Testing Framework</h1>
+
+<section class='field radio'>
+  <%= f.radio_button :css, nil %>
+  <%= f.label "css_nil", "None" %>
+  <%= f.label "css_nil", "Vanilla CSS is good enough for me, thanks.", :class => 'help'%>
+</section>
+
+<% for recipe in Recipe.for('css') %>
+  <section class='field radio'>
+    <%= f.radio_button :css, recipe.slug %>
+    <%= f.label "css_#{recipe.slug}", recipe.name %>
+    <%= f.label "css_#{recipe.slug}", recipe.description, :class => 'help'%>
+  </section>
+<% end %>

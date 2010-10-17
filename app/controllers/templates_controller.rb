@@ -44,6 +44,7 @@ class TemplatesController < ApplicationController
   end
   
   def show
+    @page_title = "#{template.name}".html_safe if template
     @heading = 'Generate Your Application'
     render :action => 'show', :layout => 'application'
   end

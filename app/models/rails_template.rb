@@ -1,7 +1,7 @@
 class RailsTemplate
   include MongoMapper::Document         
 
-  STEPS = %w(app_info orm testing javascript authentication customize)
+  STEPS = %w(app_info orm testing javascript authentication templating customize)
 
   # Fields
   key :name, String
@@ -14,7 +14,7 @@ class RailsTemplate
   scope :listed, :listed => true
   scope :recent, :order => [[:updated_at, -1]]
   
-  RECIPE_FIELDS = %w(orm unit_testing integration_testing javascript authentication)
+  RECIPE_FIELDS = %w(orm unit_testing integration_testing javascript authentication templating css)
   RECIPE_FIELDS.each{|f| key f, String}
   
   key :custom_code, String
