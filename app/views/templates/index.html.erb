@@ -1,0 +1,11 @@
+<aside id='sidebar'>
+  <p>Welcome to the recipe creator. It's
+  a bit daunting at first, but there will
+  be documentation (someday).</p>
+</aside>
+<h1 id='heading'>Recent Templates</h1>
+<section id='main'>
+  <% for template in @templates %>
+  <%= render "template", :template => template %>
+  <% end %>
+</section>

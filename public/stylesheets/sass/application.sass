@@ -28,6 +28,28 @@ a img
   padding-top: 15px
   height: 60px
   +vertical-gradient(#fff, #ddd)
+  nav
+    float: left
+    margin-left: 15px
+    ul
+      padding: 0
+    li
+      display: inline-block
+      list-style: none
+      margin-right: 8px
+    a
+      +vertical-gradient(#fff,#ccc)
+      display: inline-block
+      padding: 8px 12px
+      border: 1px solid #ddd
+      font-weight: bold
+      font-size: 14px
+      color: #333
+      text-decoration: none
+      +box-shadow(1px,1px,3px,rgba(0,0,0,0.25))
+      +border-radius(5px)
+      &:hover
+        +vertical-gradient(#fff, #ddd)
   section
     padding: 0 20px
     min-width: 960px
@@ -39,6 +61,12 @@ a img
   #user_bar
     padding-top: 10px
     position: relative
+    #signed_in
+      float: right
+      line-height: 40px
+      a
+        color: #333
+        margin-left: 10px
     #sign_in
       color: #333
       font-weight: bold
@@ -93,11 +121,15 @@ h1, h2, h3, h4
     +vertical-gradient(#666,#333)
     padding: 8px 14px
     +border-top-radius(5px)
+    +clearfix
+    iframe
+      margin: 5px 0 0 10px
     h1
       color: white
       font-size: 26px
       text-shadow: 2px 2px 5px rgba(0,0,0,0.5)
       margin: 0
+      float: left
     h2
       float: right
       font-size: 18px
@@ -174,6 +206,7 @@ aside#sidebar
   padding-top: 15px
   p
     margin: 0 15px 15px
+
 #main
   margin: 0 15px 15px 315px
   background: white
@@ -195,7 +228,7 @@ aside#sidebar
     line-height: 150%
     
 #heading
-  margin: 0 25px 0 315px
+  margin: 0 15px 0 315px
   +vertical-gradient(#acd,#8ab)
   +box-shadow(0,1px,7px,rgba(0,0,0,0.4))
   padding: 12px 15px
@@ -351,3 +384,68 @@ ul.recipe_list
       border: 0
     &.odd
       background: #f5f5f5
+      
+#main article.template_listing
+  padding: 15px 0
+  border-bottom: 1px solid #ddd
+  &:last-child
+    border: 0
+  h1
+    margin: 0 0 5px 0
+    font-size: 18px
+    font-weight: bold
+    color: #333
+    border: 0
+    a
+      color: #356
+      text-decoration: none
+      display: inline-block
+    a.edit
+      font-size: 11px
+      font-weight: normal
+      display: inline-block
+      padding: 3px 6px
+      margin: 2px 0
+      vertical-align: top
+      border: 1px solid #ddd
+      +border-radius(3px)
+      +vertical-gradient(#fff,#ddd)
+      color: #333
+      &:hover
+        background: white
+      margin-bottom: 3px
+  div.description
+    font-size: 14px
+    line-height: 140%
+    color: #666
+    p
+      margin: 0 0 8px 0
+      &:last-child
+        margin: 0
+  ul.recipes
+    float: right
+    display: inline-block
+    padding: 0
+    margin: 0 0 0 5px
+    li
+      list-style: none
+      display: inline-block
+      a
+        display: block
+        padding: 3px 6px
+        font-size: 11px
+        +vertical-gradient(#cef, #acd)
+        color: #367
+        text-decoration: none
+        margin-left: 3px
+        +border-radius(3px)
+        
+#template_description
+  font-size: 18px
+  color: #666
+  padding: 20px 25px 0
+  p
+    margin: 0 0 10px 0
+    line-height: 150%
+    &:last-child
+      margin: 0

@@ -6,8 +6,17 @@ class TemplatesController < ApplicationController
     @page_title = template.name if template
   end
   
+  def index
+    @page_title = "Template Directory"
+    @templates = RailsTemplate.listed.recent.limit(30)
+    render :action => 'index', :layout => 'application'
+  end
+  
   def create
-    if @template = RailsTemplate.create(params[:rails_template])
+    @template = RailsTemplate.new(params[:rails_template])
+    @template.user = current_user if signed_in?
+    
+    if @template.save
       redirect_to edit_path(@template)
     else
       flash[:alert] = 'Unable to create a template. Something is wrong.'

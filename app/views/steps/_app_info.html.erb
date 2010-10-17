@@ -10,6 +10,12 @@
   <%= f.text_field :slug, :placeholder => 'Template URL' %>
 </div>
 
+<div class='field text'>
+  <%= f.label :description, "Description"%>
+  <%= f.label :description, "Some (Markdown) text about your template. Will be displayed in the directory and/or on your template's homepage.", :class => 'help' %>  
+  <%= f.text_area :description %>
+</div>
+
 <div class='field check'>
   <%= f.check_box :listed %>
   <%= f.label :listed, "List Template in Directory?"%>

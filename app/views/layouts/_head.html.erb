@@ -11,12 +11,20 @@
   <header id='top'>
     <section>
       <h1><%= link_to image_tag('/images/logo.png', :alt => 'RailsWizard'), '/' %></h1>
+      <nav>
+        <ul>
+          <li><%= link_to 'Template Directory', templates_path %></li>
+          <!--<li><%= link_to 'Recipes', recipes_path %></li>-->
+        </ul>
+      </nav>
       <aside id='user_bar'>
         <% if signed_in? %>
+          <div id='signed_in'>
           <%= link_to user_path(current_user) do %>
-            <%= image_tag '/asdouasf', :width => 20, :height => 20 %>
             <b><%= current_user.name %></b>
           <% end %>
+          <%= link_to 'Sign Out', sign_out_path %>
+          </div>
         <% else %>
           <div id='sign_in'>
             <span>Sign In</span>
@@ -39,4 +47,5 @@
           <h2><%= link_to compile_url(template), compile_url(template), :target => '_template' %></h2>
         <% end %>
         <h1><%= @page_title || "Create a Rails Application Template" %></h1>
+        <%= yield :after_page_title %>
       </header>

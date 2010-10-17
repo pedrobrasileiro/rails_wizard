@@ -1,3 +1,11 @@
+<% content_for(:after_page_title) do %><%= tweet_button :text => "Check out the '#{template.name}' Rails template", :count => 'horizontal', :via => 'railswizard' %><% end %>
+
+<% if template.description? %>
+<section id='template_description'>
+  <%= template.description_html %>
+</section>
+<% end %>
+
 <section id='main' class='fill'>
   <p>This template is ready to go, you just need to run the Rails application generator.
   Simply choose a directory name below and then copy and paste the command that's in the

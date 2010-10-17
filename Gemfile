@@ -8,6 +8,8 @@ gem 'mongo_mapper', :git => 'git://github.com/jnunemaker/mongomapper.git', :bran
 gem 'omniauth'
 gem 'git-deploy'
 gem 'haml'
+gem 'maruku'
+gem 'tweet-button'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.0.1'

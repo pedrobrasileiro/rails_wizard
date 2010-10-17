@@ -1,0 +1,12 @@
+<article class='template_listing'>
+  <ul class='recipes'>
+    <% for recipe in template.recipes %>
+      <li><%= link_to recipe.name, recipe %></li>
+    <% end %>
+  </ul>
+  <h1>
+    <%= link_to template.name, show_path(template) %>
+    <%= link_to 'Edit', edit_path(template), :class => 'edit' if template.can_edit?(current_user) %>
+  </h1>
+  <% if template.description? %><div class='description'><%=raw template.description_html %></div><% end %>
+</article>

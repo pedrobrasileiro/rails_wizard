@@ -3,7 +3,10 @@ RailsWizard::Application.routes.draw do
 
   resources :templates
   resources :recipes
-    
+  resources :users
+  
+  match '/auth/sign_out', :to => 'sessions#destroy', :as => 'sign_out'
+  
   match '/:id.rb', :to => 'templates#compile', :as => 'compile'    
   match '/:id', :to => 'templates#show', :as => 'show'
   match '/:id/edit', :to => 'templates#edit', :as => 'edit'

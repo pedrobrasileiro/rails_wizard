@@ -7,6 +7,12 @@ class RailsTemplate
   key :name, String
   key :slug, String
   key :listed, Boolean
+  key :description, String
+  def description_html; Maruku.new(description).to_html.html_safe end
+  belongs_to :user
+  
+  scope :listed, :listed => true
+  scope :recent, :order => [[:updated_at, -1]]
   
   RECIPE_FIELDS = %w(orm unit_testing integration_testing javascript authentication)
   RECIPE_FIELDS.each{|f| key f, String}
@@ -18,6 +24,10 @@ class RailsTemplate
   # Validations
   validates_presence_of :name, :slug
   validates_uniqueness_of :slug
+  
+  def can_edit?(user)
+    self.user.nil? || user.id == self.user_id
+  end
   
   # Params
   def to_param
