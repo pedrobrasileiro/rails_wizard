@@ -1,3 +1,6 @@
-<% for template in user.rails_templates %>
-  <%= link_to template.name, show_path(template) %>
-<% end %>
+<section id='main' class='fill'>
+  <h1><%= user.name %>'s Rails Templates</h1>
+  <% for template in user.rails_templates %>
+    <%= render "templates/template", :template => template %>
+  <% end %>
+</section>
