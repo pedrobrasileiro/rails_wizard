@@ -42,7 +42,7 @@ class Recipe
   end
   
   def self.for(category)
-    where(:category => category)
+    where(:category => category, :approved => true).order([[:name, 1]])
   end
   
   def self.from_param(param)
