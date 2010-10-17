@@ -1,0 +1,34 @@
+<section id='main' class='fill'>
+  <p>This template is ready to go, you just need to run the Rails application generator.
+  Simply choose a directory name below and then copy and paste the command that's in the
+  black box into your command line.</p>
+
+  <div id='rails_command'>rails new <span id='app_name'>APP_NAME</span> -m <%= compile_url(template) %></div>
+
+  <div class='field text'>
+    <%= label_tag 'app_directory_field', 'Directory Name:'  %>
+    <%= label_tag 'app_directory_field', 'Pick the directory in which you want to place your app (affects command only).', :class => 'help'  %>
+    <%= text_field_tag :app_directory, 'APP_NAME', :id => 'app_directory_field', :class => 'mono' %>
+  </div>
+
+  <h1>Template Summary</h1>
+
+  <p>This template includes the following recipes:</p>
+
+  <ul class='recipe_list'>
+    <% for recipe in template.recipes %>
+      <li class='<%= cycle('even','odd') %>'><b><%= recipe.name %>:</b> <%= recipe.description %></li>
+    <% end %>
+  </ul>
+</section>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $('#app_directory_field').focus().keyup(function() {
+      val = $(this).val();
+      if (val == '') val = "APP_NAME";
+      $('#app_name').html(val);
+      return true;
+    });
+  });
+</script>

@@ -1,0 +1,21 @@
+<%= content_for(:head) do %>
+  <link id="bespin_base" href="/javascripts/bespin"/>
+  <script src="/javascripts/bespin/BespinEmbedded.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    window.onBespinLoad = function() {
+        var edit = document.getElementById("<%= dom_id %>");
+        // Get the environment variable.
+        var env = edit.bespin;
+        // Get the editor.
+        var editor = env.editor;
+        
+        env.editor.syntax = 'rb';
+        env.settings.set('theme','white');
+        env.settings.set('tabstop',2);
+        
+        editor.textChanged.add(function() {
+          $('#<%= dom_id %>').val(env.editor.value);
+        });
+    };
+  </script>
+<% end %>

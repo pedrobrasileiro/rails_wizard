@@ -1,7 +1,11 @@
 class TemplatesController < ApplicationController
   layout 'wizard'
+
   before_filter :template, :only => [:edit, :show, :destroy, :compile]
-    
+  before_filter do
+    @page_title = template.name if template
+  end
+  
   def create
     if @template = RailsTemplate.create(params[:rails_template])
       redirect_to edit_path(@template)
@@ -13,8 +17,8 @@ class TemplatesController < ApplicationController
   
   def edit
     params[:step] ||= 'app_info'
-    @page_title = template.name
     @heading = params[:step].titleize
+    @page_title = "Editing '#{template.name}'"
   end
   
   def compile
@@ -30,6 +34,11 @@ class TemplatesController < ApplicationController
     end
   end
   
+  def show
+    @heading = 'Generate Your Application'
+    render :action => 'show', :layout => 'application'
+  end
+  
   protected
   
   def next_state
@@ -39,7 +48,7 @@ class TemplatesController < ApplicationController
       when 'Previous Step'
         step_path(template, previous_step)
       when 'Finish'
-        template_path(template)
+        show_path(template)
     end
   end
   

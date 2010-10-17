@@ -1,7 +1,13 @@
 <div class='field text'>
   <%= f.label :name, 'Template Name:' %>
   <%= f.label :name, "Give this template a name. This is just for your own reference.", :class => 'help' %>
-  <%= f.text_field :name, :placeholder => 'Application Name' %>
+  <%= f.text_field :name, :placeholder => 'Template Name' %>
+</div>
+
+<div class='field text'>
+  <%= f.label :slug, 'Template URL:' %>
+  <%= f.label :slug, "Choose a URL for your template. Note, private templates should have obscure URLs.", :class => 'help' %>
+  <%= f.text_field :slug, :placeholder => 'Template URL' %>
 </div>
 
 <div class='field check'>

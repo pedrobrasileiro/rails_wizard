@@ -32,4 +32,8 @@ recipes = template.values.flatten
 <%=raw Recipe.find_by_slug(template.integration_testing).compile rescue '' %>
 <%=raw Recipe.find_by_slug(template.orm).compile rescue '' %>
 <%=raw Recipe.find_by_slug(template.javascript).compile rescue '' %>
-<%=raw Recipe.find_by_slug(template.authentication).compile rescue '' %>
+<%=raw Recipe.find_by_slug(template.authentication).compile rescue '' -%>
+
+<% if template.custom_code? %># >-----------------------------[ Custom Code ]-------------------------------<
+
+<%= raw template.custom_code %><% end %>

@@ -11,6 +11,9 @@ body
   margin: 0
   font-family: $helvetica
   background: #ddd
+
+a
+  color: #379
   
 section, header, footer, nav, aside, hgroup
   display: block
@@ -84,7 +87,8 @@ h1, h2, h3, h4
   margin-top: 20px
   +border-radius(5px)
   +box-shadow(1px,1px,3px,rgba(0,0,0,0.3))
-  padding-bottom: 5px
+  padding-bottom: 15px
+  +clearfix
   > header
     +vertical-gradient(#666,#333)
     padding: 8px 14px
@@ -145,7 +149,7 @@ h1, h2, h3, h4
       border-bottom: 1px solid #ccc
       border-top: 1px solid #eee
       cursor: default
-    a.complete
+    a.completed
       background: #dfd
       border-bottom-color: #ada
       border-top-color: #dfd
@@ -176,10 +180,13 @@ aside#sidebar
   padding: 15px 25px 25px
   +box-shadow(0,1px,7px,rgba(0,0,0,0.3))
   +border-bottom-radius(10px)
+  &.fill
+    margin: 25px 25px 15px
+    +border-top-radius(10px)
   h1, h2, h3, h4
     border-bottom: 1px solid #ccc
     font-weight: normal
-    margin: 0 0 20px
+    margin: 15px 0 15px
     color: #555
     letter-spacing: 0
   h1
@@ -188,12 +195,14 @@ aside#sidebar
     line-height: 150%
     
 #heading
-  margin: 0 15px 0 315px
+  margin: 0 25px 0 315px
   +vertical-gradient(#acd,#8ab)
   +box-shadow(0,1px,7px,rgba(0,0,0,0.4))
   padding: 12px 15px
   color: #256
   z-index: 100
+  &.fill
+    margin: 0 25px 0
   em
     font-weight: normal
     font-style: normal
@@ -309,3 +318,36 @@ div.bespin
   a
     color: #555
     font-weight: bold
+    
+#rails_command
+  font-family: Monaco, "Courier New", monospace
+  font-size: 14px
+  text-align: center
+  +vertical-gradient(#491,#271)
+  padding: 15px
+  border: 1px solid #251
+  +border-radius(3px)
+  color: white
+  
+#app_name
+  color: #ffc
+  font-weight: bold
+  
+input.mono
+  font-family: monospace
+  
+ul.recipe_list
+  padding: 0
+  margin: 0
+  li
+    margin: 0
+    list-style: none
+    border-bottom: 1px solid #eee
+    padding: 10px
+    color: #666
+    b
+      color: #333
+    &:last-child
+      border: 0
+    &.odd
+      background: #f5f5f5

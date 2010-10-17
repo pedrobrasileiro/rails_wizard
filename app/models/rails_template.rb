@@ -1,7 +1,7 @@
 class RailsTemplate
   include MongoMapper::Document         
 
-  STEPS = %w(app_info orm testing javascript authentication)
+  STEPS = %w(app_info orm testing javascript authentication customize)
 
   # Fields
   key :name, String
@@ -10,6 +10,8 @@ class RailsTemplate
   
   RECIPE_FIELDS = %w(orm unit_testing integration_testing javascript authentication)
   RECIPE_FIELDS.each{|f| key f, String}
+  
+  key :custom_code, String
   
   timestamps!
   
@@ -26,8 +28,13 @@ class RailsTemplate
     RailsTemplate.find_by_slug(slug)
   end
   
+  def recipes
+    Recipe.where(:slug => RECIPE_FIELDS.map{|f| self.send(f)})
+  end
+  
   def app_info?; !self.listed.nil? end
   def testing?; self.unit_testing? || self.integration_testing? end
+  def customize?; self.custom_code? end
   
   # Slug Generation
   before_validation :set_slug, :on => :create
