@@ -25,6 +25,6 @@ class Recipe
   end
   
   def compile
-    "# >-----[ #{name} ]-----<\n\n# #{description}\n#{code}"
+    "# >#{"[ #{name} ]".center(75,'-')}<\n\n# #{description}\n#{code}\n"
   end
 end

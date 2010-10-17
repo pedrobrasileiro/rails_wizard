@@ -32,6 +32,12 @@
     <%= f.text_field :name, :placeholder => 'Display Title (e.g. jQuery UI)' %>
   </div>
   
+  <div class='field select'>
+    <%= f.label :category, 'Category:' %>
+    <%= f.label :category, 'Pick the category under which your recipe falls.', :class => 'help' %>
+    <%= f.select :category, [['Javascript','javascript'],['Database/ORM','orm'],['Unit Testing','unit_testing'],['Integration Testing','integration_testing'],['Authentication','authentication']] %>
+  </div>
+  
   <div class='field text'>
     <%= f.label :description, 'Description:' %>
     <%= f.label :description, 'Provide some information about what this recipe will add to the template.', :class => 'help' %>

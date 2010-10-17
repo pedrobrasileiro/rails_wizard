@@ -1,0 +1,15 @@
+<h1>Authentication System</h1>
+
+<section class='field radio'>
+  <%= f.radio_button :authentication, '' %>
+  <%= f.label "authentication_nil", "None" %>
+  <%= f.label "authentication_nil", "Don't install an authentication solution.", :class => 'help'%>
+</section>
+
+<% for recipe in Recipe.for('authentication') %>
+  <section class='field radio'>
+    <%= f.radio_button :authentication, recipe.slug %>
+    <%= f.label "authentication_#{recipe.slug}", recipe.name %>
+    <%= f.label "authentication_#{recipe.slug}", recipe.description, :class => 'help'%>
+  </section>
+<% end %>

@@ -18,4 +18,18 @@
 # |\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|
 #  ---------------------------------------------------------------------------
 
-<%=raw Recipe.find_by_slug(template.javascript).compile %>
+# >----------------------------[ Initial Setup ]------------------------------<
+
+initializer 'generators.rb', <<-RUBY
+Rails.application.config.generators do |g|
+end
+RUBY
+
+template = <%=raw RailsTemplate::RECIPE_FIELDS.inject({}){|h,f| h[f] = template.send(f); h}.inspect %>
+recipes = template.values.flatten
+
+<%=raw Recipe.find_by_slug(template.unit_testing).compile rescue '' %>
+<%=raw Recipe.find_by_slug(template.integration_testing).compile rescue '' %>
+<%=raw Recipe.find_by_slug(template.orm).compile rescue '' %>
+<%=raw Recipe.find_by_slug(template.javascript).compile rescue '' %>
+<%=raw Recipe.find_by_slug(template.authentication).compile rescue '' %>

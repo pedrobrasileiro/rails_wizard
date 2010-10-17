@@ -1,0 +1,10 @@
+<p>Select the orm engine and ORM you'd like to use for your project.</p>
+
+<h1>Database/ORM</h1>
+<% for recipe in Recipe.for('orm') %>
+  <section class='field radio'>
+    <%= f.radio_button :orm, recipe.slug %>
+    <%= f.label "orm_#{recipe.slug}", recipe.name %>
+    <%= f.label "orm_#{recipe.slug}", recipe.description, :class => 'help'%>
+  </section>
+<% end %>

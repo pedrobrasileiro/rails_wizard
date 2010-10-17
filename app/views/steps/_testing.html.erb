@@ -1,0 +1,24 @@
+<h1>Unit Testing Framework</h1>
+<% for recipe in Recipe.for('unit_testing') %>
+  <section class='field radio'>
+    <%= f.radio_button :unit_testing, recipe.slug %>
+    <%= f.label "unit_testing_#{recipe.slug}", recipe.name %>
+    <%= f.label "unit_testing_#{recipe.slug}", recipe.description, :class => 'help'%>
+  </section>
+<% end %>
+
+<h1>Integration Testing Framework</h1>
+
+<section class='field radio'>
+  <%= f.radio_button :integration_testing, nil %>
+  <%= f.label "integration_testing_nil", "None" %>
+  <%= f.label "integration_testing_nil", "Don't install an integration testing framework.", :class => 'help'%>
+</section>
+
+<% for recipe in Recipe.for('integration_testing') %>
+  <section class='field radio'>
+    <%= f.radio_button :integration_testing, recipe.slug %>
+    <%= f.label "integration_testing_#{recipe.slug}", recipe.name %>
+    <%= f.label "integration_testing_#{recipe.slug}", recipe.description, :class => 'help'%>
+  </section>
+<% end %>
