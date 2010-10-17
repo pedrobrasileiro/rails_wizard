@@ -9,6 +9,12 @@
     <%= f.text_field :name, :placeholder => 'Display Title (e.g. jQuery UI)' %>
   </div>
   
+  <div class='field text'>
+    <%= f.label :options, 'Command Line Options:' %>
+    <%= f.label :options, 'Command line options (such as -J if you are replacing Prototype).', :class => 'help' %>
+    <%= f.text_field :options, :placeholder => '(e.g. -J -O)', :class => 'mono' %> 
+  </div>
+  
   <div class='field select'>
     <%= f.label :category, 'Category:' %>
     <%= f.label :category, 'Pick the category under which your recipe falls.', :class => 'help' %>

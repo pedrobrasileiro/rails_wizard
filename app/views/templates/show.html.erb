@@ -11,7 +11,7 @@
   Simply choose a directory name below and then copy and paste the command that's in the
   black box into your command line.</p>
 
-  <div id='rails_command'>rails new <span id='app_name'>APP_NAME</span> -m <%= compile_url(template) %></div>
+  <div id='rails_command'>rails new <span id='app_name'>APP_NAME</span> -m <%= compile_url(template) %> <%= template.command_line_options %></div>
 
   <div class='field text'>
     <%= label_tag 'app_directory_field', 'Directory Name:'  %>

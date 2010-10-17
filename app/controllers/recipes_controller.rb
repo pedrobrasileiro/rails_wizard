@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  layout 'recipe'
+  
   before_filter do
     @page_title = "RailsWizard Recipes"
   end

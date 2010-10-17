@@ -21,6 +21,10 @@ class RailsTemplate
   
   timestamps!
   
+  def command_line_options
+    recipes.map{|r| r.options}.uniq.join(' ')
+  end
+  
   # Validations
   validates_presence_of :name, :slug
   validates_uniqueness_of :slug

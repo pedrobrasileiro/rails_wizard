@@ -7,10 +7,22 @@ class Recipe
   key :category, String
   key :priority, Float
   key :code, String
+  key :options, Array
   
   many :fields
   
   validates_presence_of :name, :slug
+  
+  def options=(opts)
+    if opts.is_a?(String)
+      opts = opts.split(' ')
+    end
+    super(opts)
+  end
+  
+  def options(array = false)
+    array ? super() : super().join(' ')
+  end
   
   def self.for(category)
     where(:category => category)
