@@ -8,12 +8,15 @@
   <%= content_for :head %>
 </head>
 <body>
+  <%= render "layouts/flash", :flash => flash %>
   <header id='top'>
     <section>
       <h1><%= link_to image_tag('/images/logo.png', :alt => 'RailsWizard'), '/' %></h1>
       <nav>
         <ul>
-          <li><%= link_to 'Template Directory', templates_path %></li>
+          <li><%= link_to image_tag('/images/rumble_vote.png', :alt => 'Vote for me in the 2010 Rails Rumble!'), "http://railsrumble.com/teams/the-lonely-intridean", :target => '_blank' %></li>
+          <li><%= link_to 'Template Directory', templates_path, :class => 'button' %></li>
+          <li><%= link_to 'About', 'http://github.com/intridea/rails_wizard/wiki', :target => '_github', :class => 'button' %></li>
           <!--<li><%= link_to 'Recipes', recipes_path %></li>-->
         </ul>
       </nav>

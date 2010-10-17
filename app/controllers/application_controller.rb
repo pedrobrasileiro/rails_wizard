@@ -21,5 +21,16 @@ class ApplicationController < ActionController::Base
     @current_user = user    
   end
   
-  helper_method :signed_in?, :current_user
+  def admin?
+    signed_in? && current_user.admin?
+  end
+  
+  def login_required
+    unless signed_in?
+      flash[:alert] = 'You must be signed in to access that area of the site.'
+      redirect_to @back || :back
+    end
+  end
+  
+  helper_method :signed_in?, :current_user, :admin?
 end

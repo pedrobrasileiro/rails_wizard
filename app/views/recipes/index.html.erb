@@ -1,0 +1,22 @@
+<table class='recipes tabular'>
+  <thead>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% for recipe in @recipes %>
+      <tr class='<%= cycle('even','odd') %>'>
+        <th><%= recipe.name %></th>
+        <td><%= recipe.category.titleize %></td>
+        <td>
+        <% if admin? %>
+        <%= recipe.approved? ? link_to('Unapprove', unapprove_recipe_path(recipe), :method => 'put') : link_to('Approve', approve_recipe_path(recipe), :method => :put) %>
+        <% end %>
+        <% if signed_in? && recipe.can_edit?(current_user) %>
+        <%= link_to 'Edit', edit_recipe_path(recipe) %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

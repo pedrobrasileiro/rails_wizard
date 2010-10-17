@@ -10,12 +10,16 @@ class User
   def self.from_hash(auth_hash)
     user = authorize(auth_hash['provider'], auth_hash['uid'])
     user ||= User.create(
-      :name => auth_hash['user_info']['name'],
+      :name => (auth_hash['user_info']['name'] rescue 'User'),
       :authorization => {
         :provider => auth_hash['provider'],
         :uid => auth_hash['uid']
       }
     )
+  end
+  
+  def admin?
+    false
   end
   
   def self.authorize(provider, uid)

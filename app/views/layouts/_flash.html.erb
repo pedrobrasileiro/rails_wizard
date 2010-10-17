@@ -1,0 +1,5 @@
+<% if flash.keys.any? %>
+  <% flash.each_pair do |k,v| %>
+    <aside class='flash <%= k %>'><%= v %></aside>
+  <% end %>
+<% end %>

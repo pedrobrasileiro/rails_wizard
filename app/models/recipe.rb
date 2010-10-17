@@ -8,16 +8,33 @@ class Recipe
   key :priority, Float
   key :code, String
   key :options, Array
+  key :approved, Boolean, :default => false
+  belongs_to :user
+  
+  scope :approved, :approved => true
   
   many :fields
   
   validates_presence_of :name, :slug
+  
+  CATEGORIES = [
+    ['Javascript','javascript'],
+    ['Database/ORM','orm'],
+    ['Unit Testing','unit_testing'],
+    ['Integration Testing','integration_testing'],
+    ['Authentication','authentication'],
+    ['Other','other']
+  ]
   
   def options=(opts)
     if opts.is_a?(String)
       opts = opts.split(' ')
     end
     super(opts)
+  end
+  
+  def can_edit?(user)
+    user.admin? || self.user == user
   end
   
   def options(array = false)

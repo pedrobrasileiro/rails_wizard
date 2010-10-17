@@ -18,7 +18,7 @@
   <div class='field select'>
     <%= f.label :category, 'Category:' %>
     <%= f.label :category, 'Pick the category under which your recipe falls.', :class => 'help' %>
-    <%= f.select :category, [['Javascript','javascript'],['Database/ORM','orm'],['Unit Testing','unit_testing'],['Integration Testing','integration_testing'],['Authentication','authentication']] %>
+    <%= f.select :category, Recipe::CATEGORIES %>
   </div>
   
   <div class='field text'>

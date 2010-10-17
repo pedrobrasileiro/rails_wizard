@@ -9,4 +9,9 @@ class SessionsController < ApplicationController
     flash[:notice] = 'You are now signed out.'
     redirect_to '/'
   end
+  
+  def fail
+    flash[:alert] = "Authentication failed for some reason. Please try again."
+    redirect_to '/'
+  end
 end

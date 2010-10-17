@@ -13,4 +13,5 @@ RailsWizard::Application.routes.draw do
   match '/:id/edit/:step', :to => 'templates#edit', :as => 'step'
   
   match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/auth/failure', :to => 'sessions#fail'
 end

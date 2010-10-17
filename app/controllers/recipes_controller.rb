@@ -3,6 +3,14 @@ class RecipesController < ApplicationController
   
   before_filter do
     @page_title = "RailsWizard Recipes"
+    @back = '/recipes'
+  end
+  
+  before_filter :login_required, :only => [:create, :new, :edit, :update]
+  
+  def index
+    @heading = "All Recipes"
+    @recipes = Recipe.all(:order => [['category', 1]])
   end
   
   def new
@@ -10,7 +18,9 @@ class RecipesController < ApplicationController
   end
   
   def create
-    if @recipe = Recipe.create(params[:recipe])
+    @recipe = Recipe.new(params[:recipe])
+    @recipe.user = current_user
+    if @recipe.save
       redirect_to recipe
     else
       flash.now[:alert] = 'Error creating recipe.'
