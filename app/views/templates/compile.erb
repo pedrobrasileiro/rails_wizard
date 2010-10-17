@@ -27,12 +27,13 @@ RUBY
 
 template = <%=raw RailsTemplate::RECIPE_FIELDS.inject({}){|h,f| h[f] = template.send(f); h}.inspect %>
 recipes = template.values.flatten
+def say_recipe(name); say "\033[36m" + "recipe".rjust(10) + "\033[0m" + "    Running #{name} recipe..." end
 
-<%=raw Recipe.find_by_slug(template.unit_testing).compile rescue '' %>
-<%=raw Recipe.find_by_slug(template.integration_testing).compile rescue '' %>
-<%=raw Recipe.find_by_slug(template.orm).compile rescue '' %>
-<%=raw Recipe.find_by_slug(template.javascript).compile rescue '' %>
-<%=raw Recipe.find_by_slug(template.authentication).compile rescue '' -%>
+<% RailsTemplate::RECIPE_FIELDS.each do |f| %>
+<% if r = Recipe.find_by_slug(template.send(f)) %>
+<%=raw r.compile rescue '' %>
+<% end %>
+<% end %>
 
 <% if template.custom_code? %># >-----------------------------[ Custom Code ]-------------------------------<
 

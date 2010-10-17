@@ -37,6 +37,6 @@ class Recipe
   end
   
   def compile
-    "# >#{"[ #{name} ]".center(75,'-')}<\n\n# #{description}\n#{code}\n"
+    "# >#{"[ #{name} ]".center(75,'-')}<\n\n# #{description}\nsay_recipe '#{name}'\n\n#{code}\n"
   end
 end
