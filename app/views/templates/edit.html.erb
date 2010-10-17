@@ -4,7 +4,8 @@
   <%= render "steps/#{params[:step]}", :f => f %>
   
   <div class='field submit'>
-    <%= link_to 'Previous Step', step_path(template, previous_step), :class => 'button grey' %>
-    <%= f.submit 'Next Step' %>
+    <%= f.submit 'Next Step', :style => 'float: right; margin-left: 6px' if next_step %>
+    <%= f.submit 'Finish', :style => 'float: right; margin-left: 6px;' unless next_step %>    
+    <%= f.submit 'Previous Step', :class => 'grey' if previous_step %>
   </div>
 <% end %>

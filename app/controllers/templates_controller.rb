@@ -23,7 +23,7 @@ class TemplatesController < ApplicationController
   
   def update
     if template.update_attributes(params[:rails_template])
-      redirect_to step_path(template, next_step)
+      redirect_to next_state
     else
       flash.now[:alert] = 'Unable to update template.'
       render :action => params[:step]
@@ -31,6 +31,17 @@ class TemplatesController < ApplicationController
   end
   
   protected
+  
+  def next_state
+    case params[:commit]
+      when 'Next Step'
+        step_path(template, next_step)
+      when 'Previous Step'
+        step_path(template, previous_step)
+      when 'Finish'
+        template_path(template)
+    end
+  end
   
   def template
     @template ||= RailsTemplate.from_param(params[:id])

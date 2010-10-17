@@ -1,0 +1,12 @@
+<p>Let's face it, your Javascript toolkit is just about as important as 
+your Ruby stack. Pick your load out so that you're working with your
+tools of choice.</p>
+
+<h1>Javascript Framework</h1>
+<% for recipe in Recipe.for('javascript') %>
+  <section class='field radio'>
+    <%= f.radio_button :javascript, recipe.slug %>
+    <%= f.label "javascript_#{recipe.slug}", recipe.name %>
+    <%= f.label "javascript_#{recipe.slug}", recipe.description, :class => 'help'%>
+  </section>
+<% end %>

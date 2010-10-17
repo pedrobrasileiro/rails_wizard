@@ -13,6 +13,9 @@
 # |             |                                                             |
 # | Name:       | <%= template.name.ljust(59) %> |
 # | URL:        | <%= compile_url(template).ljust(59) %> |
+# | Updated:    | <%= template.updated_at.strftime("%B %d, %Y at %H:%M%p").ljust(59) %> |
 # |             |                                                             |
 # |\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|
 #  ---------------------------------------------------------------------------
+
+<%=raw Recipe.find_by_slug(template.javascript).compile %>
