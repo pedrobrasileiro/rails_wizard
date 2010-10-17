@@ -13,7 +13,7 @@ set :keep_releases, 5
 
 # Git Settings
 set :scm,           :git
-set :branch,        "master"
+set :branch,        "rumble10"
 set :repository,    "git@github.com:railsrumble/rr10-team-2.git"
 set :deploy_via,    :remote_cache
 
