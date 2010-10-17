@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
+  before_filter do
+    redirect_to 'http://railswizard.org/' if request.host == 'railswizard.r10.railsrumble.com'
+  end
+  
   protected
   
   def signed_in?
